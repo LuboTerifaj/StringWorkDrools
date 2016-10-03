@@ -1,0 +1,9 @@
+package org.drools.workwithstring;
+
+rule "Reverse string"
+    when
+        $s : String ()
+    then
+        WorkWithString wws = new WorkWithString($s);
+        System.out.println(wws.reverseString());
+end

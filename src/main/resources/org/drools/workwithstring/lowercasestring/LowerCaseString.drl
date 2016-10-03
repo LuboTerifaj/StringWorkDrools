@@ -1,0 +1,9 @@
+package org.drools.workwithstring
+
+rule "LowerCase string"
+    when
+        $s : String ()
+    then
+        WorkWithString wws = new WorkWithString($s);
+        System.out.println(wws.toLowerCase());
+end
