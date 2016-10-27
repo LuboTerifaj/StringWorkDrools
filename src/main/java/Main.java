@@ -1,3 +1,4 @@
+import org.drools.workwithstring.TempString;
 import org.drools.workwithstring.WorkWithString;
 import org.kie.api.KieBase;
 import org.kie.api.KieServices;
@@ -16,17 +17,17 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<String> strings = new ArrayList<String>();
+        List<TempString> strings = new ArrayList<TempString>();
 
-        strings.add("Hello man");
-        strings.add("123456789");
-        strings.add("asdbvi GJVIDPS");
-        strings.add("DkveoNM   pkF");
-        strings.add("Hey!");
+        strings.add(new TempString("Hello man"));
+        strings.add(new TempString("123456789"));
+        strings.add(new TempString("asdbvi GJVIDPS"));
+        strings.add(new TempString("DkveoNM   pkF"));
+        strings.add(new TempString("Hey!"));
 
         System.out.println("Original strings: ");
-        for (String item : strings ) {
-            System.out.println(item);
+        for (TempString item : strings) {
+            System.out.println(item.getStr());
         }
         System.out.println("---------------------------------");
 
@@ -34,7 +35,7 @@ public class Main {
         KieSession kieSession = kc.newKieSession( "ReverseStringKS");
 
         System.out.println("Reverse strings: ");
-        for (String item : strings ) {
+        for (TempString item : strings) {
             kieSession.insert(item);
         }
         kieSession.fireAllRules();
@@ -44,7 +45,7 @@ public class Main {
         kieSession = kc.newKieSession("LowerCaseStringKS");
 
         System.out.println("LowerCase strings: ");
-        for (String item : strings ) {
+        for (TempString item : strings) {
             kieSession.insert(item);
         }
         kieSession.fireAllRules();
@@ -54,7 +55,7 @@ public class Main {
         kieSession = kc.newKieSession("UpperCaseStringKS");
 
         System.out.println("UpperCase strings: ");
-        for (String item : strings ) {
+        for (TempString item : strings) {
             kieSession.insert(item);
         }
         kieSession.fireAllRules();

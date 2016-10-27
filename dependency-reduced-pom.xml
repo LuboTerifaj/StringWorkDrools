@@ -32,6 +32,19 @@
           </transformers>
         </configuration>
       </plugin>
+        <plugin>
+            <groupId>org.apache.servicemix.tooling</groupId>
+            <artifactId>depends-maven-plugin</artifactId>
+            <version>1.2</version>
+            <executions>
+                <execution>
+                    <id>generate-depends-file</id>
+                    <goals>
+                        <goal>generate-depends-file</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
     </plugins>
   </build>
   <repositories>
@@ -46,6 +59,19 @@
   </repositories>
   <dependencies>
     <dependency>
+        <groupId>org.apache.karaf</groupId>
+        <artifactId>apache-karaf</artifactId>
+        <version>2.2.0</version>
+        <type>tar.gz</type>
+        <scope>test</scope>
+        <exclusions>
+            <exclusion>
+                <artifactId>*</artifactId>
+                <groupId>*</groupId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+      <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
@@ -57,8 +83,97 @@
         </exclusion>
       </exclusions>
     </dependency>
+      <dependency>
+          <groupId>org.assertj</groupId>
+          <artifactId>assertj-core</artifactId>
+          <version>2.0.0</version>
+          <scope>test</scope>
+          <exclusions>
+              <exclusion>
+                  <artifactId>memoryfilesystem</artifactId>
+                  <groupId>com.github.marschall</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.ops4j.pax.exam</groupId>
+          <artifactId>pax-exam-container-karaf</artifactId>
+          <version>4.3.0</version>
+          <scope>test</scope>
+          <exclusions>
+              <exclusion>
+                  <artifactId>pax-exam-container-remote</artifactId>
+                  <groupId>org.ops4j.pax.exam</groupId>
+              </exclusion>
+              <exclusion>
+                  <artifactId>commons-compress</artifactId>
+                  <groupId>org.apache.commons</groupId>
+              </exclusion>
+              <exclusion>
+                  <artifactId>pax-swissbox-framework</artifactId>
+                  <groupId>org.ops4j.pax.swissbox</groupId>
+              </exclusion>
+              <exclusion>
+                  <artifactId>ops4j-base-spi</artifactId>
+                  <groupId>org.ops4j.base</groupId>
+              </exclusion>
+              <exclusion>
+                  <artifactId>commons-io</artifactId>
+                  <groupId>commons-io</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.ops4j.pax.exam</groupId>
+          <artifactId>pax-exam-junit4</artifactId>
+          <version>4.3.0</version>
+          <scope>test</scope>
+          <exclusions>
+              <exclusion>
+                  <artifactId>pax-exam-spi</artifactId>
+                  <groupId>org.ops4j.pax.exam</groupId>
+              </exclusion>
+              <exclusion>
+                  <artifactId>ops4j-base-lang</artifactId>
+                  <groupId>org.ops4j.base</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.ops4j.pax.exam</groupId>
+          <artifactId>pax-exam</artifactId>
+          <version>4.3.0</version>
+          <scope>test</scope>
+          <exclusions>
+              <exclusion>
+                  <artifactId>ops4j-base-store</artifactId>
+                  <groupId>org.ops4j.base</groupId>
+              </exclusion>
+              <exclusion>
+                  <artifactId>ops4j-base-util-property</artifactId>
+                  <groupId>org.ops4j.base</groupId>
+              </exclusion>
+              <exclusion>
+                  <artifactId>ops4j-base-lang</artifactId>
+                  <groupId>org.ops4j.base</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.ops4j.pax.url</groupId>
+          <artifactId>pax-url-aether</artifactId>
+          <version>2.2.0</version>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>javax.inject</groupId>
+          <artifactId>javax.inject</artifactId>
+          <version>1</version>
+          <scope>test</scope>
+      </dependency>
   </dependencies>
   <properties>
+      <pax.exam.version>4.3.0</pax.exam.version>
     <droolsVersion>6.4.0.Final</droolsVersion>
   </properties>
 </project>
