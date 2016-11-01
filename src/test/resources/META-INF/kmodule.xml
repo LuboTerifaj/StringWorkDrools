@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.drools.org/xsd/kmodule">
+
+    <kbase name="LowerCaseStringKB" packages="org.drools.workwithstring.lowercasestring">
+        <ksession name="LowerCaseStringKS"/>
+    </kbase>
+
+    <kbase name="ReverseStringKB" packages="org.drools.workwithstring.reversestring">
+        <ksession name="ReverseStringKS"/>
+    </kbase>
+
+    <kbase name="UpperCaseStringKB" packages="org.drools.workwithstring.uppercasestring">
+        <ksession name="UpperCaseStringKS"/>
+    </kbase>
+
+</kmodule>

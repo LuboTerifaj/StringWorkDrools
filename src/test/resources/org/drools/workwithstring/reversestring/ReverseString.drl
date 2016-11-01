@@ -1,0 +1,10 @@
+package org.drools.workwithstring;
+
+rule "Reverse string"
+    when
+        $s : TempString ()
+    then
+        WorkWithString wws = new WorkWithString($s.getStr());
+        $s.setStr(wws.reverseString());
+        System.out.println($s.getStr());
+end
